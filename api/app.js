@@ -27,7 +27,7 @@ quotes = [
 ]
 
 function getRandomQuote () {
-  let getRandomQuote = Math.floor(Math.random () * quote.length)
+  let randomNum = Math.floor(Math.random () * quote.length)
   return quotes[randomNum]
 } 
 
