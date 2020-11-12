@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 app.use(cors());
 app.use(bodyParser.json())
 
-quotes = [
+const quotes = [
   '"PERFECT IS THE ENEMY OF GOOD." –VOLTAIRE',
   '"I’M STILL LEARNING." –MICHELANGELO',
   '"LIFE IS A JOURNEY, NOT A DESTINATION." –RALPH WALDO EMERSON',
@@ -27,7 +27,7 @@ quotes = [
 ]
 
 function getRandomQuote () {
-  let randomNum = Math.floor(Math.random () * quote.length)
+  let randomNum = Math.floor(Math.random () * quotes.length)
   return quotes[randomNum]
 } 
 
@@ -42,7 +42,7 @@ app.get('/quotes', (req, res) => {
 
 // To do: Create a route for retrieving a random quote
 app.get('/random/quotes', (req, res) => {
-  res.send(getrandomquote)
+  res.send(getRandomQuote ())
 })
 // To do: What happens if index is out of range? See mockups/app-routes.gif for desired behaviour
 app.get ('/quotes/:index', (req, res) => {

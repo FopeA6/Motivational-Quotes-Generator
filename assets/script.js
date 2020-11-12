@@ -9,20 +9,18 @@
 
 // });
 
-const form = document.querySelector("submit-form");
-//form.addEventListener('submit', handleFormSubmit)
+const form = document.querySelector("#submit-form");
+form.addEventListener('submit', handleFormSubmit)
 
 function handleFormSubmit(e){
   e.preventDefault();
-  const form = e.target;
-  const button = document.getElementById("button").addEventListener("click", getRandomQuote)
+  
+  fetch('http://localhost:5000/random/quotes')
+  .then(r => r.text ()) 
+  .then(quote =>  
+   $('#text').html(quote))
 }
 
-// fetch('http://localhost:5000/quotes')
-// .then(function (response) {
-//   quote = response.data
-//   $('#text').html(quote)
-// })
   
 
 function getRandomQuote () {
