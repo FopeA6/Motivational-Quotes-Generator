@@ -1,17 +1,32 @@
-$( "form" ).submit(function( event ) {
-  event.preventDefault();
+// $( "form" ).submit(function(event) {
+//   event.preventDefault();
 
-  axios.post('http://localhost:5000/quotes')
-  .then(function (response) {
-    quote = response.data
-    $('#text').html(quote)
-  })
+//   axios.post('http://localhost:5000/quotes')
+//   .then(function (response) {
+//     quote = response.data
+//     $('#text').html(quote)
+//   })
 
-});
+// });
 
-// fetch.get('http://localhost:3000/quotes')
+const form = document.querySelector("submit-form");
+//form.addEventListener('submit', handleFormSubmit)
+
+function handleFormSubmit(e){
+  e.preventDefault();
+  const form = e.target;
+  const button = document.getElementById("button").addEventListener("click", getRandomQuote)
+}
+
+// fetch('http://localhost:5000/quotes')
 // .then(function (response) {
 //   quote = response.data
 //   $('#text').html(quote)
 // })
-// resp => resp.json()).then(console.log)
+  
+
+function getRandomQuote () {
+    let randomNum = Math.floor(Math.random () * quote.length)
+    return quotes[randomNum]
+  } 
+
