@@ -1,7 +1,12 @@
 const express = require('express')
+const port = 5000
 const app = express()
-const port = 3000
+
 const cors = require('cors');
+const bodyParser = require('body-parser');
+
+app.use(cors());
+app.use(bodyParser.json())
 
 quotes = [
   '"PERFECT IS THE ENEMY OF GOOD." –VOLTAIRE',
@@ -22,18 +27,33 @@ quotes = [
 ]
 
 function getRandomQuote () {
-  return quotes[4]
-}
+  let getRandomQuote = Math.floor(Math.random () * quote.length)
+  return quotes[randomNum]
+} 
 
-app.use(cors());
-
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 // To do: Create a route for retrieving all quotes
+app.get('/quotes', (req, res) => {
+  res.send(quotes)
+})
 
 // To do: Create a route for retrieving a random quote
-
+app.get('/random/quotes', (req, res) => {
+  res.send(getrandomquote)
+})
 // To do: What happens if index is out of range? See mockups/app-routes.gif for desired behaviour
-app.get('/quotes/:index', (req, res) => res.send(quotes[req.params.index]))
-
+app.get ('/quotes/:index', (req, res) => {
+  let index = req.params.index
+  if(index > 0 && index <= 15) {
+    res.send(quotes[req.params.index])
+  }
+  else {
+    res.send("ERROR: choose a number between 1 & 15 please!")
+  }
+})
+  
 // To do: Get the server running
+app.listen(port, () => console.log(`Express running from port ${port}!`))
