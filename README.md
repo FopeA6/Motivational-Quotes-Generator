@@ -49,4 +49,7 @@ You are going to debug and complete a Random Quotes generator. When you are fini
 11. (quotes[req.params.index]) - quotes refers to the array, req.params.index - points to what we are requesting, The req.params property is an object containing properties mapped to the named route “parameters”. 
 12. Make code more readable, multi-lines etc.
 13. res.send(404).end() - The end() methods is used to get the offset after the last character is matched, so in this case after the last array index is reached, and the user tries to reach any beyond that, they will receive a 404 error.
-14. 
+14. Now for clientside.
+    15. Read over minor errors in html like syntax, id names etc, just tidy it up.
+    16. Only change one thing at a time to check.
+    17. r.text is used because text is the content-type of quotes.
