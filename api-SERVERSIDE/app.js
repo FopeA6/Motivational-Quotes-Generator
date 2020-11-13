@@ -54,6 +54,12 @@ app.get ('/quotes/:index', (req, res) => {
     res.send("ERROR: choose a number between 1 & 15 please!")
   }
 })
-  
+// app.get ('/quotes/:index', (req, res) => {
+// if (numInRange) {
+//   res.send(quotes[req.params.index -1])
+// } else {
+//   res.send(404).end()
+// }
+// });  
 // To do: Get the server running
 app.listen(port, () => console.log(`Express running from port ${port}!`))
